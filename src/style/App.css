@@ -6,3 +6,12 @@
 .font-colors {
     color: white;
 }
+
+.button-style {
+    height: 45px;
+    width: 120px;
+    float: right;
+    margin-top: 50px;
+    margin-right: 60px;
+    font-size: 90%;
+}
