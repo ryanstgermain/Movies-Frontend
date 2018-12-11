@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 const NewMovie = () => {
     return (
         <div>
-            <Button bsStyle="primary" className="button-style">New Movie</Button>
+            <Button bsStyle="default" className="button-style">New Movie</Button>
         </div>
     );
 }
