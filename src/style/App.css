@@ -12,26 +12,39 @@
     width: 120px;
     float: right;
     margin-top: 50px;
+    margin-bottom: 20px;
     margin-right: 60px;
     font-size: 90%;
 }
 
-.movie-table {
-    height: 25%;
-    width: 75%;
-    border: solid 2px black;
-    padding: 5%;
-    margin-top: 150px;
-    margin-left: 13%;
-    text-align: center;
+img {
+    height: 100px;
+}
+
+table {
+    border: 1px solid black;
+    width: 80%
+}
+
+tr {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-head {
+    margin-left: 30px;
+}
+
+td {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .table-buttons {
-    height: 25px;
-    width: 100px;
-}
-
-.rows td {
-    padding: 1%;
-    border: solid 1px black;
+    margin-right: 30px;
+    height: 30px;
+    width: 70px
 }
