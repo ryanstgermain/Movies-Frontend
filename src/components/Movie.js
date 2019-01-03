@@ -18,16 +18,18 @@ const Movie = (props) => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>{props.cats.title}</td>
-                    <td>{props.cats.director}</td>
-                    <td>{props.cats.year}</td>
-                    <td>{props.cats.rating}</td>
-                    <Button bsStyle="default" className="table-buttons">Delete Movie</Button>
-                    <Link to="/EditPage">
-                        <Button bsStyle="default" className="table-buttons">Edit</Button>
-                    </Link>
-                </tr>
+                <Link to="/Show">
+                    <tr>
+                        <td>{props.cats.title}</td>
+                        <td>{props.cats.director}</td>
+                        <td>{props.cats.year}</td>
+                        <td>{props.cats.rating}</td>
+                        <Button bsStyle="default" className="table-buttons">Delete Movie</Button>
+                        <Link to="/EditPage">
+                            <Button bsStyle="default" className="table-buttons">Edit</Button>
+                        </Link>
+                    </tr>
+                </Link>
             </tbody>
         </Table>
     )
