@@ -1,5 +1,6 @@
 import React from 'react';
 import '../style/App.css';
+import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { Table } from 'react-bootstrap';
 
@@ -23,7 +24,9 @@ const Movie = (props) => {
                     <td>{props.cats.year}</td>
                     <td>{props.cats.rating}</td>
                     <Button bsStyle="default" className="table-buttons">Delete Movie</Button>
-                    <Button bsStyle="default" className="table-buttons">Edit</Button>
+                    <Link to="/EditPage">
+                        <Button bsStyle="default" className="table-buttons">Edit</Button>
+                    </Link>
                 </tr>
             </tbody>
         </Table>

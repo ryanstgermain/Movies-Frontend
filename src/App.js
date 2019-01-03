@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/header.js';
 import Home from './components/home.js';
 import AddMovie from './components/new_movie.js';
+import ShowPage from './components/show-page.js';
+import EditPage from './components/edit-page.js';
 import NewMovie from './components/movie_button.js';
 import Movies from './components/movies.js';
 import './style/App.css';
@@ -31,6 +33,8 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route path="/New" component={AddMovie} />
             <Route path="/Movies" component={NewMovie} />
+            <Route path="/Show" render={()=><ShowPage movies={this.state.movies}/>}/>
+            <Route path="/Edit" component={EditPage} />
             <Route path="/Movies" render={()=><Movies movies={this.state.movies}/>}/>
         </div>
     );
