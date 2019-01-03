@@ -34,7 +34,7 @@ class App extends Component {
             <Route path="/New" component={AddMovie} />
             <Route path="/Movies" component={NewMovie} />
             <Route path="/Show" render={()=><ShowPage movies={this.state.movies}/>}/>
-            <Route path="/Edit" component={EditPage} />
+            <Route path="/EditPage" component={EditPage} />
             <Route path="/Movies" render={()=><Movies movies={this.state.movies}/>}/>
         </div>
     );

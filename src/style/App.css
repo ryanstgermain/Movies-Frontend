@@ -97,3 +97,15 @@ input {
 .show-info {
     text-align: center;
 }
+
+.movie-poster {
+    height: 550px;
+    width: 450px;
+    margin-left: 165px
+}
+
+.edit-button {
+    margin-top: 20px;
+    height: 40px;
+    width: 150px;
+}

@@ -9,9 +9,9 @@ const ShowPage = (props) => {
             <Link to="/Movies">
                 <Button bsStyle="default" className="back-button">Back</Button>
             </Link>
-            <h2 className="add-info">Shit</h2>
+            <h2 className="add-info">Movie title goes here</h2>
             <div className="show-info">
-                <img src=""/>
+                <img className="movie-poster" src="https://sspride.org/wp-content/uploads/2017/03/image-placeholder-500x500.jpg"/>
                 <h5>Title:</h5>
                 <h5>Director:</h5>
                 <h5>Year:</h5>
