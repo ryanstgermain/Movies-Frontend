@@ -17,11 +17,9 @@
 }
 .button-style {
     height: 45px;
+    margin-top: 10px;
     width: 120px;
     font-size: 90%;
-}
-
-.back-button {
 }
 
 .home-img {
@@ -78,8 +76,20 @@ input {
     flex-direction: row;
 }
 
+.add-info {
+    margin-left: 40px
+}
+
 .add-button {
-   margin-left: 173px;
-   height: 40px;
-   width: 145px;
+    margin-left: 173px;
+    height: 40px;
+    width: 145px;
+}
+
+.back-button {
+    float: right;
+    margin-right: 40px;
+    margin-top: 10px;
+    height: 40px;
+    width: 145px
 }

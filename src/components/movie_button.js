@@ -9,7 +9,9 @@ const NewMovie = () => {
             <Link to="/New">
                 <Button bsStyle="default" className="button-style">New Movie</Button>
             </Link>
-            <a href="/" className="back-button">Back</a>
+            <Link to="/">
+                <Button bsStyle="default" className="button-style">Back</Button>
+            </Link>
         </div>
     );
 }

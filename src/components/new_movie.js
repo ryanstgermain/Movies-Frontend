@@ -1,11 +1,15 @@
 import React from 'react';
 import '../style/App.css';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const AddMovie = () => {
     return (
         <div>
-            <h2>Add a Movie</h2>
+            <Link to="/Movies">
+                <Button bsStyle="default" className="back-button">Back</Button>
+            </Link>
+            <h2 className="add-info">Add a Movie</h2>
             <div className='add-movie'>
                 <ul>
                     <h4>Title:</h4>
@@ -22,7 +26,9 @@ const AddMovie = () => {
                     <input></input>
                 </ul>
             </div>
-            <Button bsStyle="default" className="add-button">Add Movie</Button>
+            <Link to="/Movies">
+                <Button bsStyle="default" className="add-button">Add Movie</Button>
+            </Link>
         </div>
     )
 }
