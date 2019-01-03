@@ -10,7 +10,7 @@ const Movie = (props) => {
                 <tr className="table-head">
                     <th>Title</th>
                     <th>Director</th>
-                    <th>Year Made</th>
+                    <th>Year</th>
                     <th>My Rating</th>
                     <th></th>
                     <th></th>

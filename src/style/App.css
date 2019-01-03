@@ -24,7 +24,7 @@
 .back-button {
 }
 
-img {
+.home-img {
     width: 100%;
 }
 
@@ -65,4 +65,21 @@ td {
     margin-right: 30px;
     height: 30px;
     width: 70px
+}
+
+input {
+    display: flex;
+    flex-direction: column;
+    margin-top: 13%
+}
+
+.add-movie {
+    display: flex;
+    flex-direction: row;
+}
+
+.add-button {
+   margin-left: 173px;
+   height: 40px;
+   width: 145px;
 }
