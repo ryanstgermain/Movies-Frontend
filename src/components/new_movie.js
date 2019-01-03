@@ -26,9 +26,7 @@ const AddMovie = () => {
                     <input></input>
                 </ul>
             </div>
-            <Link to="/Movies">
-                <Button bsStyle="default" className="add-button">Add Movie</Button>
-            </Link>
+            <Button bsStyle="default" className="add-button">Add Movie</Button>
         </div>
     )
 }

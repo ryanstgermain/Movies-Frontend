@@ -25,9 +25,7 @@ const EditPage = (props) => {
                     <input></input>
                     <input></input>
                     <input></input>
-                    <Link to="/Movies">
-                        <Button bsStyle="default" className="edit-button">Edit Movie</Button>
-                    </Link>
+                    <Button bsStyle="default" className="edit-button">Edit Movie</Button>
                 </ul>
             </div>
         </div>
