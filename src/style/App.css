@@ -7,18 +7,36 @@
     color: white;
 }
 
-.button-style {
-    height: 45px;
-    width: 120px;
+.buttons {
     float: right;
     margin-top: 50px;
     margin-bottom: 20px;
     margin-right: 60px;
+    display: flex;
+    flex-direction: column
+}
+.button-style {
+    height: 45px;
+    width: 120px;
     font-size: 90%;
 }
 
+.back-button {
+}
+
 img {
-    height: 100px;
+    width: 100%;
+}
+
+.home-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  padding: 12px 24px;
+  color: white;
+  font-size: 50px;
 }
 
 table {
