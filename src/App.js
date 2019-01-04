@@ -15,6 +15,7 @@ class App extends Component {
       super ()
         this.state = {
             movies: [],
+            movie: [],
             title: "",
             description: "",
             year: "",
@@ -22,14 +23,20 @@ class App extends Component {
         }
   }
     componentDidMount() {
-        //fetch('http://localhost:3000/')
-      //.then((response) => response.json())
-      //.then((data => this.setState({ movies: data })));
-    this.loadMovies()
+        this.loadMovies()
   }
+    oneMovieClick = (event) => {
+        console.log('oneMovieClick')
+    fetch(`http://localhost:3000/${event.target.id}`,)
+      .then(result => result.json()) 
+      .then((response) => {
+        this.setState({
+            movie: [response]
+        })
+      })
+}
 
     deleteMovie = (event) => {
-        console.log(event.target.id)
         fetch(`http://localhost:3000/${event.target.id}`, {
           method: 'DELETE',
         }).then(() => this.loadMovies())
@@ -38,10 +45,6 @@ class App extends Component {
         fetch('http://localhost:3000/')
           .then(result => result.json())
       .then((data => this.setState({ movies: data })));
-          //.then((response) => {
-            //this.setState({
-              //movies: response.movies
-            //})
     }
   render() {
     return (
@@ -50,9 +53,9 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route path="/New" component={AddMovie} />
             <Route path="/Movies" component={NewMovie} />
-            <Route path="/Show" render={()=><ShowMovies movies={this.state.movies}/>}/>
+            <Route path="/Show" render={()=><ShowMovies oneMovieClick={this.oneMovieClick} movie={this.state.movie}/>}/>
             <Route path="/EditPage" render={()=><EditMovies movies={this.state.movies}/>}/>
-            <Route path="/Movies" render={()=><Movies deleteMovie={this.deleteMovie} movies={this.state.movies}/>}/>
+            <Route path="/Movies" render={()=><Movies oneMovieClick={this.oneMovieClick} deleteMovie={this.deleteMovie} movies={this.state.movies}/>}/>
         </div>
     );
   }

@@ -3,9 +3,8 @@ import '../style/App.css';
 import Movie from './Movie.js';
 
 const Movies = (props) => {
-    console.log(props)
-    const movieStuff = props.movies.map((movie, index, arr) => {
-        return (<Movie deleteMovie={props.deleteMovie} key={index} cats={movie}/>)
+    const movieStuff = props.movies.map((movie, index) => {
+        return (<Movie oneMovieClick={props.oneMovieClick} deleteMovie={props.deleteMovie} key={index} cats={movie}/>)
     })
     return (
         <div>

@@ -51,7 +51,7 @@ tr {
 .table-head {
     display: flex;
     justify-content: space-between;
-    margin-right: 45px
+    margin-right: -150px
 }
 
 td {
@@ -62,7 +62,8 @@ td {
 }
 
 .table-buttons {
-    margin-right: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     height: 30px;
     width: 70px
 }

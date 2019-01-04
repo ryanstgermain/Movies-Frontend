@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap';
 import { Table } from 'react-bootstrap';
 
 const Movie = (props) => {
+    console.log(props)
     return (
        <div>
         <Table>
@@ -25,15 +26,15 @@ const Movie = (props) => {
                     <td>{props.cats.year}</td>
                     <td>{props.cats.rating}</td>
                     <Link to="/Show">
-                        <Button bsStyle="default" className="table-buttons">View Movie</Button>
+                        <Button onClick={props.oneMovieClick} id={props.cats.id} bsStyle="default" className="table-buttons">View Movie</Button>
                     </Link>
                     <Link to="/EditPage">
-                        <Button bsStyle="default" className="table-buttons">Edit</Button>
+                        <Button id={props.cats.id} bsStyle="default" className="table-buttons">Edit</Button>
                     </Link>
                 </tr>
             </tbody>
         </Table>
-                    <Button onClick={props.deleteMovie} id={props.cats.id} bsStyle="default" className="table-buttons">Delete Movie</Button>
+        <Button onClick={props.deleteMovie} id={props.cats.id} bsStyle="default" className="table-buttons">Delete Movie</Button>
     </div>
     )
 }
