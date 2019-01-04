@@ -5,7 +5,7 @@ import Movie from './Movie.js';
 const Movies = (props) => {
     console.log(props)
     const movieStuff = props.movies.map((movie, index, arr) => {
-        return (<Movie key={index} cats={movie}/>)
+        return (<Movie deleteMovie={props.deleteMovie} key={index} cats={movie}/>)
     })
     return (
         <div>

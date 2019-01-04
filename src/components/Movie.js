@@ -6,6 +6,7 @@ import { Table } from 'react-bootstrap';
 
 const Movie = (props) => {
     return (
+       <div>
         <Table>
             <thead className="table-head">
                 <tr className="table-head">
@@ -26,13 +27,14 @@ const Movie = (props) => {
                     <Link to="/Show">
                         <Button bsStyle="default" className="table-buttons">View Movie</Button>
                     </Link>
-                    <Button onClick={(id) => { props.handleClick("id") }} bsStyle="default" className="table-buttons">Delete Movie</Button>
                     <Link to="/EditPage">
                         <Button bsStyle="default" className="table-buttons">Edit</Button>
                     </Link>
                 </tr>
             </tbody>
         </Table>
+                    <Button onClick={props.deleteMovie} id={props.cats.id} bsStyle="default" className="table-buttons">Delete Movie</Button>
+    </div>
     )
 }
 

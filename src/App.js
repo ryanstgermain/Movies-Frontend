@@ -22,20 +22,27 @@ class App extends Component {
         }
   }
     componentDidMount() {
-        fetch('http://localhost:3000/')
-      .then((response) => response.json())
-      .then((data => this.setState({ movies: data })));
+        //fetch('http://localhost:3000/')
+      //.then((response) => response.json())
+      //.then((data => this.setState({ movies: data })));
+    this.loadMovies()
   }
-    handleClick = movieId => {
-        const requestOptions = {
-            method: 'DELETE'
-        };
 
-    fetch("id" + movieId, requestOptions).then((response) => {
-        return response.json();
-    }).then((result) => {
-    });
-  }
+    deleteMovie = (event) => {
+        console.log(event.target.id)
+        fetch(`http://localhost:3000/${event.target.id}`, {
+          method: 'DELETE',
+        }).then(() => this.loadMovies())
+      }
+      loadMovies = () => {
+        fetch('http://localhost:3000/')
+          .then(result => result.json())
+      .then((data => this.setState({ movies: data })));
+          //.then((response) => {
+            //this.setState({
+              //movies: response.movies
+            //})
+    }
   render() {
     return (
         <div className="App">
@@ -45,7 +52,7 @@ class App extends Component {
             <Route path="/Movies" component={NewMovie} />
             <Route path="/Show" render={()=><ShowMovies movies={this.state.movies}/>}/>
             <Route path="/EditPage" render={()=><EditMovies movies={this.state.movies}/>}/>
-            <Route path="/Movies" render={()=><Movies movies={this.state.movies}/>}/>
+            <Route path="/Movies" render={()=><Movies deleteMovie={this.deleteMovie} movies={this.state.movies}/>}/>
         </div>
     );
   }

@@ -20,11 +20,11 @@ const EditPage = (props) => {
                     <h4>Poster URL:</h4>
                 </ul>
                 <ul>
-                    <input></input>
-                    <input></input>
-                    <input></input>
-                    <input></input>
-                    <input></input>
+                    <input placeholder={props.pants.title}></input>
+                    <input placeholder={props.pants.director}></input>
+                    <input placeholder={props.pants.year}></input>
+                    <input placeholder={props.pants.rating}></input>
+                    <input placeholder={props.pants.poster}></input>
                     <Button bsStyle="default" className="edit-button">Edit Movie</Button>
                 </ul>
             </div>
