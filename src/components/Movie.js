@@ -5,16 +5,6 @@ import { Button } from 'react-bootstrap';
 import { Table } from 'react-bootstrap';
 
 const Movie = (props) => {
-    const handleClick = movieId => {
-        const requestOptions = {
-            method: 'DELETE'
-        };
-
-    fetch("id" + movieId, requestOptions).then((response) => {
-        return response.json();
-    }).then((result) => {
-    });
-    }
     return (
         <Table>
             <thead className="table-head">
@@ -36,7 +26,7 @@ const Movie = (props) => {
                     <Link to="/Show">
                         <Button bsStyle="default" className="table-buttons">View Movie</Button>
                     </Link>
-                    <Button onClick={() => { this.handleClick("id") }} bsStyle="default" className="table-buttons">Delete Movie</Button>
+                    <Button onClick={(id) => { props.handleClick("id") }} bsStyle="default" className="table-buttons">Delete Movie</Button>
                     <Link to="/EditPage">
                         <Button bsStyle="default" className="table-buttons">Edit</Button>
                     </Link>

@@ -9,9 +9,9 @@ const EditPage = (props) => {
             <Link to="/Movies">
                 <Button bsStyle="default" className="back-button">Back</Button>
             </Link>
-            <h2 className="add-info">Movie title goes here</h2>
+            <h2 className="add-info">{props.pants.title}</h2>
             <div className="add-movie">
-                <img className="movie-poster" src="https://sspride.org/wp-content/uploads/2017/03/image-placeholder-500x500.jpg"/>
+                <img className="movie-poster" src={props.pants.poster}/>
                 <ul>
                     <h4>Title:</h4>
                     <h4>Director:</h4> 
