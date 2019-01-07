@@ -5,12 +5,12 @@ import { Button } from 'react-bootstrap';
 
 const NewMovie = () => {
     return (
-        <div className="buttons">
-            <Link to="/New">
-                <Button bsStyle="default" className="button-style">New Movie</Button>
+        <div className='buttons'>
+            <Link to='/New'>
+                <Button bsStyle='default' className='button-style'>New Movie</Button>
             </Link>
-            <Link to="/">
-                <Button bsStyle="default" className="button-style">Back</Button>
+            <Link to='/'>
+                <Button bsStyle='default' className='button-style'>Back</Button>
             </Link>
         </div>
     );

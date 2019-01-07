@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/header.js';
 import Home from './components/home.js';
@@ -16,58 +16,60 @@ class App extends Component {
         this.state = {
             movies: [],
             movie: [],
-            title: "",
-            director: "",
-            year: "",
-            rating: "",
-            poster: "",
+            title: '',
+            director: '',
+            year: '',
+            rating: '',
+            poster: '',
             allInputted: false
         }
   }
-    componentDidMount() {
-        this.loadMovies()
-  }
-    handleInput = (event) => {
+
+componentDidMount() {
+    this.loadMovies()
+}
+
+handleInput = (event) => {
     const { value, name } = event.target
-    this.setState({
-      [name]: value
-    })
+        this.setState({
+          [name]: value
+        })
     if (this.state.title.length > 0 && this.state.director.length > 0 && this.state.poster.length > 0 && this.state.year.length > 0 && this.state.rating > 0) {
-      this.setState({
-        allInputted: true,
-      })
+        this.setState({
+            allInputted: true,
+        })
     }
 }
 
-    oneMovieClick = (event) => {
-    fetch(`http://localhost:3000/${event.target.id}`,)
-      .then(result => result.json()) 
-      .then((response) => {
-        this.setState({
-            movie: [response]
-        })
-      })
-    }
+oneMovieClick = (event) => {
+    fetch(`https://movie-ryanstgermain.herokuapp.com/${event.target.id}`,)
+        .then(result => result.json()) 
+        .then((response) => {
+    this.setState({
+        movie: [response]
+    })
+    })
+}
 
-    editMovieButton = (event) => {
-        fetch(`http://localhost:3000/${event.target.id}`)
+editMovieButton = (event) => {
+    fetch(`https://movie-ryanstgermain.herokuapp.com/${event.target.id}`)
           .then(result => result.json())
           .then((response) => {
-            this.setState({
-              movie: [response],
-              rating: response.rating,
-              title: response.title,
-              director: response.director,
-              poster: response.poster,
-              year: response.year,
-              allInputted: true
-            })
+              this.setState({
+                  movie: [response],
+                  rating: response.rating,
+                  title: response.title,
+                  director: response.director,
+                  poster: response.poster,
+                  year: response.year,
+                  allInputted: true
+              })
           })
-    }
+}
 
 addMovie = (event) => {
     if (this.state.rating > 5 || this.state.rating < 0) {
-      alert("The Rating Scale Is From 0-5")
+      alert('The Rating Scale Is From 0-5')
     } else if (this.state.allInputted === true) {
       var newMovie = {
         title: this.state.title,
@@ -76,7 +78,7 @@ addMovie = (event) => {
         rating: this.state.rating,
         poster: this.state.poster,
       }
-      fetch('http://localhost:3000/', {
+      fetch('https://movie-ryanstgermain.herokuapp.com/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -98,7 +100,7 @@ addMovie = (event) => {
     }
 }
     
-    editMovie = (event) => {
+editMovie = (event) => {
     if (this.state.allInputted === false) {
       alert('Please Fill Out All Fields')
     }
@@ -113,11 +115,11 @@ addMovie = (event) => {
         poster: this.state.poster,
         year: this.state.year
       }
-      fetch(`http://localhost:3000/${event.target.id}`, {
+      fetch(`https://movie-ryanstgermain.herokuapp.com/${event.target.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-        },
+      },
         body: JSON.stringify(updatedMovie)
       }).then(response => response.json())
         .then(() => this.loadMovies()).then(() => {
@@ -134,27 +136,28 @@ addMovie = (event) => {
     }
 }
 
-    deleteMovie = (event) => {
-        fetch(`http://localhost:3000/${event.target.id}`, {
-          method: 'DELETE',
-        }).then(() => this.loadMovies())
-      }
-      
-    loadMovies = () => {
-        fetch('http://localhost:3000/')
-          .then(result => result.json())
-      .then((data => this.setState({ movies: data })));
-    }
+deleteMovie = (event) => {
+    fetch(`https://movie-ryanstgermain.herokuapp.com/${event.target.id}`, {
+      method: 'DELETE',
+    }).then(() => this.loadMovies())
+  }
+  
+loadMovies = () => {
+    fetch('https://movie-ryanstgermain.herokuapp.com/')
+      .then(result => result.json())
+  .then((data => this.setState({ movies: data })));
+}
+
   render() {
     return (
-        <div className="App">
+        <div className='App'>
             <Header />
-            <Route exact path="/" component={Home} />
-            <Route path="/Movies" component={NewMovie} />
-            <Route path="/New" render={()=><AddMovie handleInput={this.handleInput} addMovie={this.addMovie}/>}/>
-            <Route path="/Show" render={()=><ShowMovies oneMovieClick={this.oneMovieClick} movie={this.state.movie}/>}/>
-            <Route path="/EditPage" render={()=><EditPage handleInput={this.handleInput} editMovie={this.editMovie} movie={this.state.movie}/>}/>
-            <Route path="/Movies" render={()=><Movies editMovie={this.editMovie} editMovieButton={this.editMovieButton} oneMovieClick={this.oneMovieClick} deleteMovie={this.deleteMovie} movies={this.state.movies}/>}/>
+            <Route exact path='/' component={Home} />
+            <Route path='/Movies' component={NewMovie} />
+            <Route path='/New' render={()=><AddMovie handleInput={this.handleInput} addMovie={this.addMovie}/>}/>
+            <Route path='/Show' render={()=><ShowMovies oneMovieClick={this.oneMovieClick} movie={this.state.movie}/>}/>
+            <Route path='/EditPage' render={()=><EditPage handleInput={this.handleInput} editMovie={this.editMovie} movie={this.state.movie}/>}/>
+            <Route path='/Movies' render={()=><Movies editMovie={this.editMovie} editMovieButton={this.editMovieButton} oneMovieClick={this.oneMovieClick} deleteMovie={this.deleteMovie} movies={this.state.movies}/>}/>
         </div>
     );
   }

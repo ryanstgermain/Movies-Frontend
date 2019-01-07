@@ -5,12 +5,11 @@ import { Button } from 'react-bootstrap';
 import { Table } from 'react-bootstrap';
 
 const Movie = (props) => {
-    console.log(props)
     return (
        <div>
         <Table>
-            <thead className="table-head">
-                <tr className="table-head">
+            <thead className='table-head'>
+                <tr className='table-head'>
                     <th>Title</th>
                     <th>Director</th>
                     <th>Year</th>
@@ -25,16 +24,16 @@ const Movie = (props) => {
                     <td>{props.cats.director}</td>
                     <td>{props.cats.year}</td>
                     <td>{props.cats.rating}</td>
-                    <Link to="/Show">
-                        <Button onClick={props.oneMovieClick} id={props.cats.id} bsStyle="default" className="table-buttons">View Movie</Button>
+                    <Link to='/Show'>
+                        <Button onClick={props.oneMovieClick} id={props.cats.id} bsStyle='default' className='table-buttons'>View Movie</Button>
                     </Link>
-                    <Link to="/EditPage">
-                        <Button onClick={props.editMovieButton} id={props.cats.id} bsStyle="default" className="table-buttons">Edit</Button>
+                    <Link to='/EditPage'>
+                        <Button onClick={props.editMovieButton} id={props.cats.id} bsStyle='default' className='table-buttons'>Edit</Button>
                     </Link>
                 </tr>
             </tbody>
         </Table>
-        <Button onClick={props.deleteMovie} id={props.cats.id} bsStyle="default" className="table-buttons">Delete Movie</Button>
+        <Button onClick={props.deleteMovie} id={props.cats.id} bsStyle='default' className='table-buttons'>Delete Movie</Button>
     </div>
     )
 }

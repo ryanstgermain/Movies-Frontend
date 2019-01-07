@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 const AddMovie = (props) => {
     return (
         <div>
-            <Link to="/Movies">
-                <Button bsStyle="default" className="back-button">Back</Button>
+            <Link to='/Movies'>
+                <Button bsStyle='default' className='back-button'>Back</Button>
             </Link>
-            <h2 className="add-info">Add a Movie</h2>
+            <h2 className='add-info'>Add a Movie</h2>
             <div className='add-movie'>
                 <ul>
                     <h4>Title:</h4>
@@ -27,7 +27,7 @@ const AddMovie = (props) => {
                 </ul>
             </div>
             <Link to={`${props.allInputted ? '/Movies' : '/New'}`}>
-                <Button onClick={props.addMovie} bsStyle="default" className="add-button">Add Movie</Button>
+                <Button onClick={props.addMovie} bsStyle='default' className='add-button'>Add Movie</Button>
             </Link>
         </div>
     )
