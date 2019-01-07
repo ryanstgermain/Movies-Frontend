@@ -20,6 +20,7 @@ class App extends Component {
             description: "",
             year: "",
             rating: "",
+            poster: "",
             allInputted: false
         }
   }
@@ -31,7 +32,7 @@ class App extends Component {
     this.setState({
       [name]: value
     })
-    if (this.state.title.length > 0 && this.state.director.length > 0 && this.state.url.length > 0 && this.state.year.length > 0 && this.state.rating > 0) {
+    if (this.state.title.length > 0 && this.state.director.length > 0 && this.state.poster.length > 0 && this.state.year.length > 0 && this.state.rating > 0) {
       this.setState({
         allInputted: true,
       })
@@ -57,7 +58,7 @@ class App extends Component {
               rating: response.rating,
               title: response.title,
               director: response.director,
-              poster: response.url,
+              poster: response.poster,
               year: response.year,
               allInputted: true
             })
@@ -76,7 +77,7 @@ class App extends Component {
         title: this.state.title,
         director: this.state.director,
         rating: this.state.rating,
-        url: this.state.poster,
+        poster: this.state.poster,
         year: this.state.year
       }
       fetch(`http://localhost:3000/${event.target.id}`, {
@@ -99,6 +100,7 @@ class App extends Component {
         })
     }
 }
+
     deleteMovie = (event) => {
         fetch(`http://localhost:3000/${event.target.id}`, {
           method: 'DELETE',
@@ -119,7 +121,7 @@ class App extends Component {
             <Route path="/Movies" component={NewMovie} />
             <Route path="/Show" render={()=><ShowMovies oneMovieClick={this.oneMovieClick} movie={this.state.movie}/>}/>
             <Route path="/EditPage" render={()=><EditPage handleInput={this.handleInput} editMovie={this.editMovie} movie={this.state.movie}/>}/>
-            <Route path="/Movies" render={()=><Movies editMovieButton={this.editMovieButton} oneMovieClick={this.oneMovieClick} deleteMovie={this.deleteMovie} movies={this.state.movies}/>}/>
+            <Route path="/Movies" render={()=><Movies editMovie={this.editMovie} editMovieButton={this.editMovieButton} oneMovieClick={this.oneMovieClick} deleteMovie={this.deleteMovie} movies={this.state.movies}/>}/>
         </div>
     );
   }

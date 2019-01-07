@@ -5,7 +5,6 @@ import { Button } from 'react-bootstrap';
 
 const EditPage = (props) => {
         let movie = props.movie.map(movie => {
-        console.log(movie.title)
     return (
         <div key={`movie &{movie.id}`}>
             <Link to="/Movies">
@@ -22,12 +21,12 @@ const EditPage = (props) => {
                     <h4>Poster URL:</h4>
                 </ul>
                 <ul>
-                    <input placeholder={movie.title}></input>
-                    <input placeholder={movie.director}></input>
-                    <input placeholder={movie.year}></input>
-                    <input placeholder={movie.rating}></input>
-                    <input placeholder={movie.poster}></input>
-                    <Button bsStyle="default" className="edit-button">Edit Movie</Button>
+                    <input onChange={props.handleInput} name='title' defaultValue={movie.title}></input>
+                    <input onChange={props.handleInput} name="director" defaultValue={movie.director}></input>
+                    <input onChange={props.handleInput} name="year" defaultValue={movie.year}></input>
+                    <input onChange={props.handleInput} name="rating" defaultValue={movie.rating} min='1' max='5'></input>
+                    <input onChange={props.handleInput} name="poster" defaultValue={movie.poster}></input>
+                    <Link to={`${props.allInputted ? '/Movies' : '/Movies'}`}><Button onClick={props.editMovie} id={movie.id} bsStyle="default" className="edit-button">Edit Movie</Button></Link>
                 </ul>
             </div>
         </div>

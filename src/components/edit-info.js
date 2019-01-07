@@ -4,7 +4,7 @@ import EditPage from './edit-page.js';
 
 const EditMovies = (props) => {
     const movieInfo = props.movies.map((movie, index) => {
-        return (<EditPage key={index} pants={movie}/>)
+        return (<EditPage editMovie={props.editMovie} key={index} pants={movie}/>)
     })
     return (
         <div>
