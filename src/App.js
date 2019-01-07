@@ -17,7 +17,7 @@ class App extends Component {
             movies: [],
             movie: [],
             title: "",
-            description: "",
+            director: "",
             year: "",
             rating: "",
             poster: "",
@@ -64,6 +64,39 @@ class App extends Component {
             })
           })
     }
+
+addMovie = (event) => {
+    if (this.state.rating > 5 || this.state.rating < 0) {
+      alert("The Rating Scale Is From 0-5")
+    } else if (this.state.allInputted === true) {
+      var newMovie = {
+        title: this.state.title,
+        director: this.state.director,
+        year: this.state.year,
+        rating: this.state.rating,
+        poster: this.state.poster,
+      }
+      fetch('http://localhost:3000/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newMovie)
+      })
+        .then(response => response.json())
+        .then(() => this.loadMovies())
+        .then((response) => {
+          this.setState({
+            allInputted: false,
+            title: '',
+            director: '',
+            year: undefined,
+            rating: undefined,
+            poster: '',
+          })
+        })
+    }
+}
     
     editMovie = (event) => {
     if (this.state.allInputted === false) {
@@ -117,8 +150,8 @@ class App extends Component {
         <div className="App">
             <Header />
             <Route exact path="/" component={Home} />
-            <Route path="/New" component={AddMovie} />
             <Route path="/Movies" component={NewMovie} />
+            <Route path="/New" render={()=><AddMovie handleInput={this.handleInput} addMovie={this.addMovie}/>}/>
             <Route path="/Show" render={()=><ShowMovies oneMovieClick={this.oneMovieClick} movie={this.state.movie}/>}/>
             <Route path="/EditPage" render={()=><EditPage handleInput={this.handleInput} editMovie={this.editMovie} movie={this.state.movie}/>}/>
             <Route path="/Movies" render={()=><Movies editMovie={this.editMovie} editMovieButton={this.editMovieButton} oneMovieClick={this.oneMovieClick} deleteMovie={this.deleteMovie} movies={this.state.movies}/>}/>

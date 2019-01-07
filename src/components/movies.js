@@ -4,7 +4,7 @@ import Movie from './Movie.js';
 
 const Movies = (props) => {
     const movieStuff = props.movies.map((movie, index) => {
-        return (<Movie editMovie={props.editMovie} editMovieButton={props.editMovieButton} oneMovieClick={props.oneMovieClick} deleteMovie={props.deleteMovie} key={index} cats={movie}/>)
+        return (<Movie addMovie={props.addMovie} editMovie={props.editMovie} editMovieButton={props.editMovieButton} oneMovieClick={props.oneMovieClick} deleteMovie={props.deleteMovie} key={index} cats={movie}/>)
     })
     return (
         <div>
