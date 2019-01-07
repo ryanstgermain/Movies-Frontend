@@ -14,6 +14,6 @@ fork and clone this repository and run npm install.
 
 ## Links
 
-- Deployed frontend link:
+- Deployed frontend link: http://axiomatic-laborer.surge.sh/
 - Deployed backend link: https://movie-ryanstgermain.herokuapp.com/
 - Backend repo: https://github.com/ryanstgermain/Movies-Backend
