@@ -5,7 +5,7 @@ import Header from './components/header.js';
 import Home from './components/home.js';
 import AddMovie from './components/new_movie.js';
 import ShowMovies from './components/show-movie.js';
-import EditMovies from './components/edit-info.js';
+import EditPage from './components/edit-page.js';
 import NewMovie from './components/movie_button.js';
 import Movies from './components/movies.js';
 import './style/App.css';
@@ -19,14 +19,26 @@ class App extends Component {
             title: "",
             description: "",
             year: "",
-            rating: ""
+            rating: "",
+            allInputted: false
         }
   }
     componentDidMount() {
         this.loadMovies()
   }
+    handleInput = (event) => {
+    const { value, name } = event.target
+    this.setState({
+      [name]: value
+    })
+    if (this.state.title.length > 0 && this.state.director.length > 0 && this.state.url.length > 0 && this.state.year.length > 0 && this.state.rating > 0) {
+      this.setState({
+        allInputted: true,
+      })
+    }
+}
+
     oneMovieClick = (event) => {
-        console.log('oneMovieClick')
     fetch(`http://localhost:3000/${event.target.id}`,)
       .then(result => result.json()) 
       .then((response) => {
@@ -34,14 +46,66 @@ class App extends Component {
             movie: [response]
         })
       })
-}
+    }
 
+    editMovieButton = (event) => {
+        fetch(`http://localhost:3000/${event.target.id}`)
+          .then(result => result.json())
+          .then((response) => {
+            this.setState({
+              movie: [response],
+              rating: response.rating,
+              title: response.title,
+              director: response.director,
+              poster: response.url,
+              year: response.year,
+              allInputted: true
+            })
+          })
+    }
+    
+    editMovie = (event) => {
+    if (this.state.allInputted === false) {
+      alert('Please Fill Out All Fields')
+    }
+    else if (this.state.rating > 5) {
+      alert('Ratings must be 1-5')
+    }
+    else {
+      var updatedMovie = {
+        title: this.state.title,
+        director: this.state.director,
+        rating: this.state.rating,
+        url: this.state.poster,
+        year: this.state.year
+      }
+      fetch(`http://localhost:3000/${event.target.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedMovie)
+      }).then(response => response.json())
+        .then(() => this.loadMovies()).then(() => {
+          this.setState({
+            reviewInputted: false,
+            rating: 0,
+            title: '',
+            director: '',
+            movie: [],
+            year: 0,
+            poster: ''
+          })
+        })
+    }
+}
     deleteMovie = (event) => {
         fetch(`http://localhost:3000/${event.target.id}`, {
           method: 'DELETE',
         }).then(() => this.loadMovies())
       }
-      loadMovies = () => {
+      
+    loadMovies = () => {
         fetch('http://localhost:3000/')
           .then(result => result.json())
       .then((data => this.setState({ movies: data })));
@@ -54,8 +118,8 @@ class App extends Component {
             <Route path="/New" component={AddMovie} />
             <Route path="/Movies" component={NewMovie} />
             <Route path="/Show" render={()=><ShowMovies oneMovieClick={this.oneMovieClick} movie={this.state.movie}/>}/>
-            <Route path="/EditPage" render={()=><EditMovies movies={this.state.movies}/>}/>
-            <Route path="/Movies" render={()=><Movies oneMovieClick={this.oneMovieClick} deleteMovie={this.deleteMovie} movies={this.state.movies}/>}/>
+            <Route path="/EditPage" render={()=><EditPage handleInput={this.handleInput} editMovie={this.editMovie} movie={this.state.movie}/>}/>
+            <Route path="/Movies" render={()=><Movies editMovieButton={this.editMovieButton} oneMovieClick={this.oneMovieClick} deleteMovie={this.deleteMovie} movies={this.state.movies}/>}/>
         </div>
     );
   }

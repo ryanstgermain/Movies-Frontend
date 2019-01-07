@@ -29,7 +29,7 @@ const Movie = (props) => {
                         <Button onClick={props.oneMovieClick} id={props.cats.id} bsStyle="default" className="table-buttons">View Movie</Button>
                     </Link>
                     <Link to="/EditPage">
-                        <Button id={props.cats.id} bsStyle="default" className="table-buttons">Edit</Button>
+                        <Button onClick={props.editMovieButton} id={props.cats.id} bsStyle="default" className="table-buttons">Edit</Button>
                     </Link>
                 </tr>
             </tbody>

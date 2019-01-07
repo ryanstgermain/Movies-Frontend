@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 const ShowMovies = (props) => {
-        return (
-    props.movie.map(movie => {
-    console.log(movie.title)
-        return (
+    return (
+        props.movie.map(movie => {
+    return (
         <div key={`movie ${movie.id}`}>
             <Link to="/Movies">
                 <Button bsStyle="default" className="back-button">Back</Button>
@@ -22,6 +21,6 @@ const ShowMovies = (props) => {
         </div>
         )
     })
-        )}
+)}
 
 export default ShowMovies;
