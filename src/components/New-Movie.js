@@ -1,7 +1,7 @@
-import React from 'react';
-import '../style/App.css';
-import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import '../style/App.css'
+import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const AddMovie = (props) => {
     return (
@@ -33,4 +33,4 @@ const AddMovie = (props) => {
     )
 }
 
-export default AddMovie;
+export default AddMovie
