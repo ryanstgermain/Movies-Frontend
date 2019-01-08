@@ -1,7 +1,7 @@
-import React from 'react';
-import '../style/App.css';
-import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import React from 'react'
+import '../style/App.css'
+import { Link } from 'react-router-dom'
+import { Button } from 'react-bootstrap'
 
 const EditPage = (props) => {
         let movie = props.movie.map(movie => {
@@ -30,7 +30,7 @@ const EditPage = (props) => {
                 </ul>
             </div>
         </div>
-        );
+        )
     })
     return (
         <>
@@ -41,4 +41,4 @@ const EditPage = (props) => {
     )
 }
 
-export default EditPage;
+export default EditPage

@@ -1,7 +1,7 @@
-import React from 'react';
-import '../style/App.css';
-import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import React from 'react'
+import '../style/App.css'
+import { Link } from 'react-router-dom'
+import { Button } from 'react-bootstrap'
 
 const NewMovie = () => {
     return (
@@ -13,7 +13,7 @@ const NewMovie = () => {
                 <Button bsStyle='default' className='button-style'>Back</Button>
             </Link>
         </div>
-    );
+    )
 }
 
-export default NewMovie;
+export default NewMovie

@@ -1,7 +1,7 @@
-import React from 'react';
-import '../style/App.css';
-import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import React from 'react'
+import '../style/App.css'
+import { Link } from 'react-router-dom'
+import { Button } from 'react-bootstrap'
 
 const ShowMovies = (props) => {
     return (
@@ -23,4 +23,4 @@ const ShowMovies = (props) => {
     })
 )}
 
-export default ShowMovies;
+export default ShowMovies

@@ -1,6 +1,6 @@
-import React from 'react';
-import '../style/App.css';
-import EditPage from './edit-page.js';
+import React from 'react'
+import '../style/App.css'
+import EditPage from './edit-page.js'
 
 const EditMovies = (props) => {
     const movieInfo = props.movies.map((movie, index) => {
@@ -10,7 +10,7 @@ const EditMovies = (props) => {
         <div>
             {movieInfo}
         </div>
-    );
+    )
 }
 
-export default EditMovies;
+export default EditMovies

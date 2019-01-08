@@ -1,6 +1,6 @@
-import React from 'react';
-import '../style/App.css';
-import Movie from './Movie.js';
+import React from 'react'
+import '../style/App.css'
+import Movie from './Movie.js'
 
 const Movies = (props) => {
     const movieStuff = props.movies.map((movie, index) => {
@@ -13,7 +13,7 @@ const Movies = (props) => {
                 {movieStuff}
             </ul>
         </div>
-    );
+    )
 }
 
-export default Movies;
+export default Movies

@@ -1,8 +1,8 @@
-import React from 'react';
-import '../style/App.css';
-import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
-import { Table } from 'react-bootstrap';
+import React from 'react'
+import '../style/App.css'
+import { Link } from 'react-router-dom'
+import { Button } from 'react-bootstrap'
+import { Table } from 'react-bootstrap'
 
 const Movie = (props) => {
     return (
@@ -38,4 +38,4 @@ const Movie = (props) => {
     )
 }
 
-export default Movie;
+export default Movie
